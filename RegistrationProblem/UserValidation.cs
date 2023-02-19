@@ -43,8 +43,14 @@ namespace RegistrationProblem
         public static void ValidatePasswordRule1()
         {
             Console.WriteLine("Password: ");
-            //string pattern = "^[a-zA-Z0-9]{8,}$";
             string pattern = "^[a-zA-Z0-9]{8,}$";
+            string input = Console.ReadLine();
+            ValidatePattern(input, pattern);
+        }
+        public static void ValidatePasswordRule2()
+        {
+            Console.WriteLine("Password: ");
+            string pattern = "^(?=.*[A-Z]).{8,}$";//* for all . for atleast ?= must match the atleast condition
             string input = Console.ReadLine();
             ValidatePattern(input, pattern);
         }
