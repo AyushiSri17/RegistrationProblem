@@ -14,7 +14,7 @@ namespace RegistrationProblem
             Console.WriteLine("Choose the option for validation you want to perform");
             Console.WriteLine("1. Validate First Name \n2. Validate Last Name \n3. Validate Email \n4. Validate Mobile Number " +
                 "\n5. Validate Password Rule1 \n6. Validate Password Rule2 \n7. Validate Password Rule3 " +
-                "\n8. Validate Password Rule4");
+                "\n8. Validate Password Rule4 \n9. Validate All Emails");
             int option=Convert.ToInt32(Console.ReadLine()); 
             switch(option)
             {
@@ -41,6 +41,9 @@ namespace RegistrationProblem
                     break;
                 case 8:
                     UserValidation.ValidatePasswordRule4();
+                    break;
+                case 9:
+                    UserValidation.ValidateAllEmails();
                     break;
                 default:
                     Console.WriteLine("Please Choose the correct option");

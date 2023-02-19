@@ -68,6 +68,13 @@ namespace RegistrationProblem
             string input = Console.ReadLine();
             ValidatePattern(input, pattern);
         }
+        public static void ValidateAllEmails()
+        {
+            Console.WriteLine("Email: ");
+            string pattern = "^[a-z]{3,}[.+-a-z0-9]*@[a-z0-9]{1,}.[a-z]{2,}[.,a-z]*$";
+            string input = Console.ReadLine();
+            ValidatePattern(input, pattern);
+        }
         public static void ValidatePattern(string input, string pattern)
         {
             if (Regex.IsMatch(input, pattern))
