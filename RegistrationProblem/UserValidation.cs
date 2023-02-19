@@ -32,16 +32,20 @@ namespace RegistrationProblem
             string input = Console.ReadLine();
             ValidatePattern(input, pattern);
         }
+        public static void ValidateMobileNumber()
+        {
+            Console.WriteLine("Mobile Number: ");
+            string pattern = @"^[+]?[0-9]{2}\s[0-9]{10}$";
+            //string pattern = "^[+]?[0-9]{2}\\s[0-9]{10}$";
+            string input = Console.ReadLine();
+            ValidatePattern(input, pattern);
+        }
         public static void ValidatePattern(string input, string pattern)
         {
             if (Regex.IsMatch(input, pattern))
-            {
                 Console.WriteLine("{0} is valid ", input);
-            }
             else
-            {
                 Console.WriteLine("{0} is invalid ", input);
-            }
         }
     }
 }
