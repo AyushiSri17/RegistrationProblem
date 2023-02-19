@@ -23,6 +23,15 @@ namespace RegistrationProblem
             string input = Console.ReadLine();
             ValidatePattern(input, pattern);
         }
+        public static void ValidateEmail()
+        {
+            Console.WriteLine("Email: ");
+            string pattern = "^[a-z]{3,}[.a-z]*@[a-z]{2,}.[a-z]{2,}[.a-z]*$";//abc.xyz@bl.co.in
+            //string pattern = "^[a-z]{3,}[.a-z]*?@[a-z]{2,}?.[a-z]{2,}[.a-z]*$";
+            //string pattern = "^[a-z]{3,}[.a-z]*[@][a-z]{2,}[.][a-z]{2,}[.a-z]*$";
+            string input = Console.ReadLine();
+            ValidatePattern(input, pattern);
+        }
         public static void ValidatePattern(string input, string pattern)
         {
             if (Regex.IsMatch(input, pattern))

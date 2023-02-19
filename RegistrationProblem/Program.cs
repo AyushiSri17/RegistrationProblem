@@ -12,7 +12,7 @@ namespace RegistrationProblem
         {
             Console.WriteLine("Welcome to Registration Program");
             Console.WriteLine("Choose the option for validation you want to perform");
-            Console.WriteLine("1. Validate First Name \n2. Validate Last Name");
+            Console.WriteLine("1. Validate First Name \n2. Validate Last Name \n3. Validate Email");
             int option=Convert.ToInt32(Console.ReadLine()); 
             switch(option)
             {
@@ -21,6 +21,9 @@ namespace RegistrationProblem
                     break;
                 case 2:
                     UserValidation.ValidateLastName();
+                    break;
+                case 3:
+                    UserValidation.ValidateEmail();
                     break;
                 default:
                     Console.WriteLine("Please Choose the correct option");
