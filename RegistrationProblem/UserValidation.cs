@@ -40,6 +40,14 @@ namespace RegistrationProblem
             string input = Console.ReadLine();
             ValidatePattern(input, pattern);
         }
+        public static void ValidatePasswordRule1()
+        {
+            Console.WriteLine("Password: ");
+            //string pattern = "^[a-zA-Z0-9]{8,}$";
+            string pattern = "^[a-zA-Z0-9]{8,}$";
+            string input = Console.ReadLine();
+            ValidatePattern(input, pattern);
+        }
         public static void ValidatePattern(string input, string pattern)
         {
             if (Regex.IsMatch(input, pattern))
