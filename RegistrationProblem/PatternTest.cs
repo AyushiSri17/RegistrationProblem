@@ -11,10 +11,19 @@ namespace RegistrationProblem
     {
         public string ValidatePattern(string input, string pattern)
         {
-            if (Regex.IsMatch(input, pattern))
-                return "Valid";
-            else
-                return "Invalid";
+            try
+            {
+                if (input.Equals(string.Empty))
+                    throw new CustomException("Input is empty", CustomException.ExceptionTypes.EMPTY_INPUT);
+                else if (Regex.IsMatch(input, pattern))
+                    return "Valid";
+                else
+                    return "Invalid";
+            }
+            catch (NullReferenceException)
+            {
+                throw new CustomException("Input is null", CustomException.ExceptionTypes.NULL_INPUT);
+            }
         }
     }
 }

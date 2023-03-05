@@ -8,11 +8,12 @@ namespace UserResgistrationTestProject
     public class UnitTest1
     {
         [TestMethod]
+        [TestCategory("Validation")]
         [DataRow("Ayushi", "^[A-Z]{1}[a-z]{2,}$", "Valid")]//First name
         [DataRow("Srivastava", "^[A-Z]{1}[a-z]{2,}$", "Valid")]//Last name
         [DataRow("abc.xyz@bl.co.in", "^[a-z]{3,}[.a-z]*@[a-z]{2,}.[a-z]{2,}[.a-z]*$", "Valid")]//Email
         [DataRow("+91 9999555511", @"^[+]?[0-9]{2}\s[0-9]{10}$", "Valid")]//Mobile number
-        [DataRow("ahjhjA@5hg","^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$?^&]).{8,}$", "Valid")]//Password
+        [DataRow("ahjhjA@5hg", "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$?^&]).{8,}$", "Valid")]//Password
         [DataRow("ahjhjA5hg", "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$?^&]).{8,}$", "Invalid")]//Password
         public void CheckValidationFor_FirstName_LastName_Email_Mobile_Password(string input, string pattern, string expected)
         {
@@ -25,6 +26,7 @@ namespace UserResgistrationTestProject
         }
 
         [TestMethod]
+        [TestCategory("Validation")]
         public void CheckValidationForMultipleEmails()
         {
             //Arrange
@@ -38,6 +40,28 @@ namespace UserResgistrationTestProject
                 string actual = patternObj.ValidatePattern(email, pattern);
                 //Assert
                 Assert.AreEqual(expected, actual);
+            }
+        }
+
+        [TestMethod]
+        [TestCategory("Exception")]
+        [DataRow("Ayushi", "^[A-Z]{1}[a-z]{2,}$", "Valid")]//First name
+        [DataRow("", "^[A-Z]{1}[a-z]{2,}$", "Input is empty")]//Last name
+        [DataRow(null, @"^[+]?[0-9]{2}\s[0-9]{10}$", "Input is null")]//Mobile number
+        public void CheckValidationFor_FirstName_LastName_Email_Mobile_Password_UsingException(string input, string pattern, string expected)
+        {
+            try
+            {
+                //Arrange
+                PatternTest patternObj = new PatternTest();
+                //Act
+                string actual = patternObj.ValidatePattern(input, pattern);
+                //Assert
+                Assert.AreEqual(expected, actual);
+            }
+            catch(CustomException ex)
+            {
+                Assert.AreEqual(expected, ex.Message);
             }
         }
     }
