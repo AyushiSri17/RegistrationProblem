@@ -25,5 +25,7 @@ namespace RegistrationProblem
                 throw new CustomException("Input is null", CustomException.ExceptionTypes.NULL_INPUT);
             }
         }
+
+        public string Validation_Lambda(string input,string pattern) => Regex.IsMatch(input,pattern) ? "Valid" : "Invalid";
     }
 }
