@@ -27,7 +27,7 @@ namespace RegistrationProblem
         {
             Console.WriteLine("Email: ");
             string pattern = "^[a-z]{3,}[.a-z]*@[a-z]{2,}.[a-z]{2,}[.a-z]*$";//abc.xyz@bl.co.in
-            //string pattern = "^[a-z]{3,}[.a-z]*?@[a-z]{2,}?.[a-z]{2,}[.a-z]*$";
+            //string pattern = "^[a-z]{3,}[.a-z]*?@[a-z]{2,}?.[a-z]{2,}[.a-z]*$";//here ? is exactly 1
             //string pattern = "^[a-z]{3,}[.a-z]*[@][a-z]{2,}[.][a-z]{2,}[.a-z]*$";
             string input = Console.ReadLine();
             ValidatePattern(input, pattern);
@@ -71,7 +71,7 @@ namespace RegistrationProblem
         public static void ValidateAllEmails()
         {
             Console.WriteLine("Email: ");
-            string pattern = "^[a-z]{3,}[.+-a-z0-9]*@[a-z0-9]{1,}.[a-z]{2,}[.,a-z]*$";
+            string pattern = "^[a-z]{3,}[.+-a-z0-9]*@[a-z0-9]{1,}.[a-z]{2,}[.a-z]*$";
             string input = Console.ReadLine();
             ValidatePattern(input, pattern);
         }
